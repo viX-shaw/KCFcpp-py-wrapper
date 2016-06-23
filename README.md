@@ -1,11 +1,11 @@
-I write a python wrapper for [KCFcpp](https://github.com/joaofaro/KCFcpp), much of my work is borrowed from http://nicellama.blogspot.com/2015/06/cython-wrapper-between-opencv-mat-in-c.html .
+I write a python wrapper for [KCFcpp](https://github.com/joaofaro/KCFcpp), some of the code are modified from http://nicellama.blogspot.com/2015/06/cython-wrapper-between-opencv-mat-in-c.html .
 
 Requirements
 -----
 * Python 2.7
 * NumPy
 * Cython
-* OpenCV (both C++ and Python interface)
+* OpenCV (both C++ and Python interfaces)
 
 Build
 -----------
