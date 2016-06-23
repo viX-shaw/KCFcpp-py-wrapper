@@ -1,3 +1,42 @@
+I write a python wrapper for [KCFcpp](https://github.com/joaofaro/KCFcpp), much of my work is borrowed from http://nicellama.blogspot.com/2015/06/cython-wrapper-between-opencv-mat-in-c.html .
+
+Requirements
+-----
+* Python 2.7
+* NumPy
+* Cython
+* OpenCV (both C++ and Python interface)
+
+Build
+-----------
+
+```
+python setup.py build_ext --inplace
+```
+or
+```
+python setup.py install
+```
+
+Usage
+-----
+
+```
+python run.py
+python run.py 1
+python run.py test.avi
+```
+
+References
+-----
+1. *Cython: A Guide for Python Programmers* by Kurt Smith<br>
+2. Cython wrapper between opencv Mat in C++ and numpy http://nicellama.blogspot.com/2015/06/cython-wrapper-between-opencv-mat-in-c.html
+
+<br>
+
+---
+***ORIGINAL README:***
+
 # C++ KCF Tracker
 This package includes a C++ class with several tracking methods based on the Kernelized Correlation Filter (KCF) [1, 2].   
 It also includes an executable to interface with the VOT benchmark.
