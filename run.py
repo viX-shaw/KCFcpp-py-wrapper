@@ -9,10 +9,10 @@ selectingObject = False
 initTracking = True
 onTracking = False
 # ix, iy, cx, cy = -1, -1, -1, -1
-ix = 120
-iy = 320
-w = 20
-h = 70
+ix = 900
+iy = 400
+w = 80
+h = 150
 # w, h = 0, 0
 
 inteval = 1
@@ -83,7 +83,7 @@ if __name__ == '__main__':
 		elif(onTracking):
 			t0 = time()
 			boundingbox = tracker.update(frame)  #frame had better be contiguous
-			print("update. done")
+			print("update. done", boundingbox)
 			
 			t1 = time()
 
