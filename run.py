@@ -77,12 +77,14 @@ if __name__ == '__main__':
 			cv2.rectangle(frame,(ix,iy), (ix+w,iy+h), (0,255,255), 2)
 
 			tracker.init([ix,iy,w,h], frame)
-
+			print("Init. done")
 			initTracking = False
 			onTracking = True
 		elif(onTracking):
 			t0 = time()
 			boundingbox = tracker.update(frame)  #frame had better be contiguous
+			print("update. done")
+			
 			t1 = time()
 
 			boundingbox = map(int, boundingbox)
