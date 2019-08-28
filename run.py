@@ -9,7 +9,7 @@ selectingObject = False
 initTracking = True
 onTracking = False
 # ix, iy, cx, cy = -1, -1, -1, -1
-ix = 1630
+ix = 120
 iy = 320
 w = 20
 h = 70
@@ -70,7 +70,7 @@ if __name__ == '__main__':
 		ret, frame = cap.read()
 		if not ret:
 			break
-
+		print(frame.shape)
 		if(selectingObject):
 			cv2.rectangle(frame,(ix,iy), (cx,cy), (0,255,255), 1)
 		elif(initTracking):
