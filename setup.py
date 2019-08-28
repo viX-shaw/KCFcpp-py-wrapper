@@ -3,7 +3,7 @@ from Cython.Distutils import build_ext
 import numpy
 
 libdr = ['/usr/local/lib']
-incdr = [numpy.get_include(), '/usr/local/include/']
+incdr = [numpy.get_include(), '/usr/local/include/opencv4','/usr/include/']
 
 ext = [
 	Extension('cvt', ['python/cvt.pyx'], 
