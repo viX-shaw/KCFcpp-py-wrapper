@@ -13,7 +13,7 @@ ix = 120
 iy = 320
 w = 20
 h = 70
-w, h = 0, 0
+# w, h = 0, 0
 
 inteval = 1
 duration = 0.01
