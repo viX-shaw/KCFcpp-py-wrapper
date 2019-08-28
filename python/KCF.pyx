@@ -13,7 +13,8 @@ cdef extern from "opencv2/core/cvstd.hpp" namespace "cv":
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 	cdef cppclass TrackerKCF:
-		Ptr[TrackerKCF] create()	
+		@staticmethod
+		"Ptr<TrackerKCF>" create()	
 		
 cdef class kcftracker:
 	cdef KCFTracker *classptr
