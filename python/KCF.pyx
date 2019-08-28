@@ -7,11 +7,11 @@ cdef extern from "../src/kcftracker.hpp":
 		void init(Rect, Mat)
 		Rect update(Mat)
 
-cdef extern from "opencv2/core/cvstd.hpp" namespace cv:
+cdef extern from "opencv2/core/cvstd.hpp" namespace "cv":
 	cdef cppclass Ptr:
 		Ptr()
 
-cdef extern from "opencv2/tracking.hpp" namespace cv:
+cdef extern from "opencv2/tracking.hpp" namespace "cv":
 	cdef cppclass TrackerKCF:
 		@staticmethod
 		Ptr<TrackerKCF> create()	
