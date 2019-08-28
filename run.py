@@ -5,11 +5,14 @@ from time import time
 
 import KCF
 
-
 selectingObject = False
-initTracking = False
+initTracking = True
 onTracking = False
-ix, iy, cx, cy = -1, -1, -1, -1
+# ix, iy, cx, cy = -1, -1, -1, -1
+ix = 1630
+iy = 320
+w = 20
+h = 70
 w, h = 0, 0
 
 inteval = 1
@@ -60,8 +63,8 @@ if __name__ == '__main__':
 
 	tracker = KCF.kcftracker(False, True, False, False)  # hog, fixed_window, multiscale, lab
 
-	cv2.namedWindow('tracking')
-	cv2.setMouseCallback('tracking',draw_boundingbox)
+	# cv2.namedWindow('tracking')
+	# cv2.setMouseCallback('tracking',draw_boundingbox)
 
 	while(cap.isOpened()):
 		ret, frame = cap.read()
@@ -95,4 +98,4 @@ if __name__ == '__main__':
 			break
 
 	cap.release()
-	cv2.destroyAllWindows()
+	# cv2.destroyAllWindows()
