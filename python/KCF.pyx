@@ -6,6 +6,15 @@ cdef extern from "../src/kcftracker.hpp":
 		KCFTracker(bool, bool, bool, bool)
 		void init(Rect, Mat)
 		Rect update(Mat)
+
+cdef extern from "opencv2/core/cvstd.hpp" namespace cv:
+	cdef cppclass Ptr:
+		Ptr()
+
+cdef extern from "opencv2/tracking.hpp" namespace cv:
+	cdef cppclass TrackerKCF:
+		@staticmethod
+		Ptr<TrackerKCF> create()	
 		
 cdef class kcftracker:
 	cdef KCFTracker *classptr
@@ -22,3 +31,4 @@ cdef class kcftracker:
 	def update(self, ary):
 		rect = self.classptr.update(nparray2cvmat(ary))
 		return cvrect2pylist(rect)
+

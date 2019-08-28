@@ -89,7 +89,7 @@ if __name__ == '__main__':
 			#duration = t1-t0
 			cv2.putText(frame, 'FPS: '+str(1/duration)[:4].strip('.'), (8,20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
 
-		cv2.imshow('tracking', frame)
+		cv2.imwrite('/content/sample_data/{}.jpg'.format(cap.get(1)), frame)
 		c = cv2.waitKey(inteval) & 0xFF
 		if c==27 or c==ord('q'):
 			break

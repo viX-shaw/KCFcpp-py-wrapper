@@ -17,7 +17,7 @@ ext = [
 		extra_compile_args = ['-std=c++11'], 
 		include_dirs = incdr, 
 		library_dirs = libdr, 
-		libraries = ['opencv_core', 'opencv_imgproc'])
+		libraries = ['opencv_core', 'opencv_imgproc', 'opencv_contrib'])
 ]
 
 setup(
