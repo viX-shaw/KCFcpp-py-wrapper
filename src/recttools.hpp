@@ -43,6 +43,7 @@ the use of this software, even if advised of the possibility of such damage.
 #define _OPENCV_RECTTOOLS_HPP_
 #endif
 
+using namespace cv;
 namespace RectTools
 {
 
