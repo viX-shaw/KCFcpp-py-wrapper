@@ -12,12 +12,12 @@ ext = [
 		include_dirs = incdr, 
 		library_dirs = libdr, 
 		libraries = ['opencv_core']), 
-	Extension('KCF', ['python/KCF.pyx', 'python/ptrtracker.hpp','src/kcftracker.cpp', 'src/fhog.cpp'], 
+	Extension('KCF', ['python/KCF.pyx', 'src/kcftracker.cpp', 'src/fhog.cpp'], 
 		language = 'c++', 
 		extra_compile_args = ['-std=c++11'], 
 		include_dirs = incdr, 
 		library_dirs = libdr, 
-		libraries = ['opencv_core', 'opencv_imgproc', "opencv_tracking"])
+		libraries = ['opencv_core', 'opencv_imgproc', 'opencv_tracking'])
 ]
 
 setup(
