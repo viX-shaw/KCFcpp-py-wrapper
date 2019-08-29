@@ -2,4 +2,4 @@
 #include "opencv2/tracking.hpp"
 
 using namespace cv;
-typedef cv::Ptr<Tracker> Ptr_Tracker;
+typedef cv::Ptr<Tracker>; Ptr_Tracker;
