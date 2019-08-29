@@ -12,7 +12,7 @@ cdef extern from "opencv2/core/cvstd.hpp" namespace "cv":
 		Ptr()
 
 cdef extern from "ptrtracker.hpp" namespace "tr":
-	pass:
+	pass
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 	cdef cppclass Tracker:
 		pass
