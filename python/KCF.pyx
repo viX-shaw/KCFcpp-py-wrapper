@@ -12,8 +12,12 @@ cdef extern from "opencv2/core/cvstd.hpp" namespace "cv":
 		Ptr()
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
+	cdef cppclass Tracker:
+		pass
 	cdef cppclass TrackerKCF:
-		void create()	
+		Ptr[Tracker] create()
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)	
 		
 cdef class kcftracker:
 	cdef KCFTracker *classptr
