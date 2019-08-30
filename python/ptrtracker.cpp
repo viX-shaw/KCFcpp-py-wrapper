@@ -4,7 +4,6 @@
 #include <opencv2/highgui.hpp>
 #include <iostream>
 #include <cstring>
-#include "samples_utility.hpp"
 
 using namespace std;
 using namespace cv;
