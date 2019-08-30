@@ -11,11 +11,7 @@ cdef extern from "opencv2/core/cvstd.hpp" namespace "cv":
 	cdef cppclass Ptr:
 		Ptr()
 
-cdef extern from "./ptrtracker.hpp":
-	cdef cppclass Ptr_Tracker:
-		pass
-
-cdef extern from "opencv2/tracking.hpp" namespace "cv":
+cdef extern from "opencv2/trackingMypatrner.hpp" namespace "cv":
 	cdef cppclass Tracker:
 		pass
 	cdef cppclass TrackerKCF:
