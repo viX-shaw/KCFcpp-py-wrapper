@@ -4,4 +4,4 @@
 using namespace cv;
 using namespace std;
 
-Ptr<Tracker> Ptr_Tracker;
+typedef Ptr<Tracker> PtrTracker;
