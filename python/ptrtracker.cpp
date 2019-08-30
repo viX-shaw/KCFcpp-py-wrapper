@@ -1,8 +1,25 @@
-#include <opencv2/core/cvstd.hpp>
+#include <opencv2/core/utility.hpp>
 #include <opencv2/tracking.hpp>
+#include <opencv2/videoio.hpp>
+#include <opencv2/highgui.hpp>
+#include <iostream>
+#include <cstring>
+#include "samples_utility.hpp"
 
-using namespace cv;
 using namespace std;
+using namespace cv;
 
-Tracker tr;
-typedef Ptr<Tracker> PtrTracker;
+int main( int argc, char** argv ){
+  // show help
+  if(argc<2){
+    cout<<
+      " Usage: example_tracking_kcf <video_name>\n"
+      " examples:\n"
+      " example_tracking_kcf Bolt/img/%04.jpg\n"
+      " example_tracking_kcf faceocc2.webm\n"
+      << endl;
+    return 0;
+  }
+
+  // create the tracker
+  Ptr<Tracker> tracker = TrackerKCF::create();
