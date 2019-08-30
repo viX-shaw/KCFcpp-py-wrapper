@@ -4,4 +4,4 @@
 #include <cstring>
 
   // create the tracker
-typedef Ptr<Tracker> PtrTracker;
+typedef Tracker PtrTracker;
