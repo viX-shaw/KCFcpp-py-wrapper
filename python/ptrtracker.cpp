@@ -9,4 +9,4 @@ using namespace std;
 using namespace cv;
 
   // create the tracker
-Ptr<Tracker> tracker = TrackerKCF::create();
+Ptr<TrackerKCF> tracker = TrackerKCF::create();
