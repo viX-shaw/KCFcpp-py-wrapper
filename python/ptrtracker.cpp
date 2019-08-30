@@ -5,5 +5,5 @@
 #include <cstring>
 
   // create the tracker
-using namespace std;
+using namespace cv;
 typedef Ptr PtrTracker;
