@@ -4,4 +4,4 @@
 #include <cstring>
 
   // create the tracker
-typedef cv::Ptr<Tracker> PtrTracker;
+typedef Ptr<Tracker> PtrTracker;
