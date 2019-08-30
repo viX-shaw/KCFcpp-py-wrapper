@@ -1,5 +1,8 @@
+#include <opencv2/core/utility.hpp>
+#include <iostream>
+#include <cstring>
+
 using namespace std;
-using namespace cv;
 
   // create the tracker
 typedef Ptr<Tracker> PtrTracker;
