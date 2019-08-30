@@ -7,8 +7,9 @@ cdef extern from "../src/kcftracker.hpp":
 		void init(Rect, Mat)
 		Rect update(Mat)
 
-cdef extern from "./ptrtracker.hpp":
-	cdef cppclass PtrTracker
+cdef extern from "./ptrtracker.cpp":
+	cdef cppclass PtrTracker:
+		pass
 
 cdef extern from "opencv2/core/cvstd.hpp" namespace "cv":
 	cdef cppclass Ptr:
