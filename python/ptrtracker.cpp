@@ -6,4 +6,4 @@
 
   // create the tracker
 using namespace cv;
-typedef Tracker PtrTracker;
+typedef Ptr<Tracker> PtrTracker;
