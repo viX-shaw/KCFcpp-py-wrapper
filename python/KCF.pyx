@@ -7,7 +7,7 @@ cdef extern from "../src/kcftracker.hpp":
 		void init(Rect, Mat)
 		Rect update(Mat)
 
-cdef extern from "./ptrtracker.cpp":
+cdef extern from "./ptrtracker.hpp":
 	cdef cppclass PtrTracker:
 		pass
 
