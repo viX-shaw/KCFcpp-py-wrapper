@@ -1,9 +1,16 @@
-#include <opencv2/core/utility.hpp>
-#include <opencv2/core/cvstd.hpp>
-#include <opencv2/tracking.hpp>
-#include <iostream>
-#include <cstring>
+#include "ptrtracker.hpp"
 
-  // create the tracker
-using namespace cv;
-typedef Ptr<Tracker> PtrTracker;
+KCFT::KCFT()
+{
+  tracker = TrackerKCF::create()
+}
+
+bool KCFT::init(cv::Mat img, cv::Rect2d &box)
+{
+  return tracker->init(img, box)
+}
+
+bool KCFT::update(cv::Mat img, cv::Rect2d &box)
+{
+  return tracker->update(img, box)
+}
