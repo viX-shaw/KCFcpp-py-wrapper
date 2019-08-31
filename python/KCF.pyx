@@ -24,7 +24,7 @@ cdef extern from "./ptrtracker.cpp":
 cdef class kcftracker:
 	cdef PtrTracker classptr
 	
-	def __cinit__():
+	def __cinit__(self):
 		self.classptr = TrackerKCF.create()
 		
 	def init(self, ary, rectlist):
