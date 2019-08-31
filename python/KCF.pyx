@@ -29,7 +29,7 @@ cdef class kcftracker:
 		self.classptr = new KCFT()
 
 	def __dealloc__(self):
-		del self,classptr
+		del self.classptr
 		
 	def init(self, ary, rectlist):
 		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
