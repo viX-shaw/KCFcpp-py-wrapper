@@ -9,9 +9,10 @@ class KCFT
 {
 public:
     KCFT();
-    virtual bool init(cv::Mat img, cv::Rect &box);
-    virtual bool update(cv::Mat img, cv::Rect &box);
+    ~KCFT();
+    virtual bool init(cv::Mat img, cv::Rect box);
+    virtual bool update(cv::Mat img, cv::Rect box);
 
     cv::Ptr<cv::Tracker> tracker;
 
-}
+};
