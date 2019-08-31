@@ -7,31 +7,30 @@ from libcpp cimport bool
 #		void init(Rect, Mat)
 #		Rect update(Mat)
 
-#cdef extern from "./ptrtracker.cpp":
-#	cdef cppclass PtrTracker:
-#		bool init(Mat, Rect)
-#		bool update(Mat, Rect)	
+cdef extern from "./ptrtracker.cpp":
+	cdef cppclass PtrTracker:
+		cppclass Tracker:
+			bool init(Mat, Rect)
+			bool update(Mat, Rect)	
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
 #		pass
 	cdef cppclass TrackerKCF:
 		@staticmethod
-		TrackerKCF create()
-		bool init(Mat, Rect)
-		bool update(Mat, Rect)
+		PtrTracker create()
 
 cdef class kcftracker:
-	cdef TrackerKCF classptr
+	cdef PtrTracker classptr
 	
 	def __cinit__(self):
 		self.classptr = TrackerKCF.create()
 		
 	def init(self, ary, rectlist):
-		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
+		return self.classptr.Tracker.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
 		
 	def update(self, ary, rectlist):
 		rect = pylist2cvrect(rectlist)
-		result = self.classptr.update(nparray2cvmat(ary), rect)
+		result = self.classptr.Tracker.update(nparray2cvmat(ary), rect)
 		return result, cvrect2pylist(rect)
 
