@@ -22,10 +22,13 @@ cdef extern from "opencv2/tracking.hpp" namespace "cv":
 		Tracker create()
 		
 cdef class kcftracker:
-	cdef TrackerKCF classptr
+	cdef Tracker *classptr
 	
 	def __cinit__(self, hog, fixed_window, multiscale, lab):
 		self.classptr = TrackerKCF.create()
+	
+	def __dealloc__(self):
+		del self.classptr
 		
 	def init(self, ary, rectlist):
 		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
