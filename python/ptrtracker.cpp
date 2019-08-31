@@ -10,7 +10,7 @@ KCFT::~KCFT()
   tracker = NULL;
 }
 
-bool KCFT::init(cv::Mat img, cv::Rect2d box)
+bool KCFT::init(cv::Mat img, const cv::Rect2d& box)
 {
   return tracker->init(img, box);
 }

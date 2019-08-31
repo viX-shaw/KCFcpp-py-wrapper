@@ -35,7 +35,7 @@ cdef class kcftracker:
 		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
 		
 	def update(self, ary, rectlist):
-		cdef Rect* rect = pylist2cvrect(rectlist)
+		cdef Rect rect = pylist2cvrect(rectlist)
 		result = self.classptr.update(nparray2cvmat(ary), rect)
 		return result, cvrect2pylist(rect)
 
