@@ -9,8 +9,8 @@ from libcpp cimport bool
 
 cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
-		bool init(InputArray, Rect2d)
-		bool update(InputArray, Rect2d)	
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)	
 	cdef cppclass InputArray:
 		pass
 
@@ -35,6 +35,6 @@ cdef class kcftracker:
 		
 	def update(self, ary, rectlist):
 		rect = pylist2cvrect(rectlist)
-		result = self.classptr.update(nparray2cvmat(ary), pylist2cvrect(rectlist))
+		result = self.classptr.update(nparray2cvmat(ary), rect)
 		return result, cvrect2pylist(rect)
 
