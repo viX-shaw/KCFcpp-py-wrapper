@@ -9,17 +9,15 @@ from libcpp cimport bool
 
 cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
-		cppclass TrackerKCF:
-			PtrTracker create()
 		bool init(Mat, Rect)
 		bool update(Mat, Rect)	
 
-#cdef extern from "opencv2/tracking.hpp" namespace "cv":
+cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
 #		pass
-#	cdef cppclass TrackerKCF:
-#		@staticmethod
-#		Tracker create()
+	cdef cppclass TrackerKCF:
+		@staticmethod
+		PtrTracker create()
 		
 cdef class kcftracker:
 	cdef PtrTracker classptr
