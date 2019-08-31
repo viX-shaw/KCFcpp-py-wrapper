@@ -7,10 +7,10 @@ from libcpp cimport bool
 #		void init(Rect, Mat)
 #		Rect update(Mat)
 
-cdef extern from "./ptrtracker.cpp":
-	cdef cppclass PtrTracker:
-		bool init(Mat, Rect)
-		bool update(Mat, Rect)	
+#cdef extern from "./ptrtracker.cpp":
+#	cdef cppclass PtrTracker:
+#		bool init(Mat, Rect)
+#		bool update(Mat, Rect)	
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
@@ -18,9 +18,11 @@ cdef extern from "opencv2/tracking.hpp" namespace "cv":
 	cdef cppclass TrackerKCF:
 		@staticmethod
 		PtrTracker create()
-		
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)
+
 cdef class kcftracker:
-	cdef PtrTracker classptr
+	cdef TrackerKCF classptr
 	
 	def __cinit__(self):
 		self.classptr = TrackerKCF.create()
