@@ -11,8 +11,6 @@ cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
 		bool init(Mat, Rect)
 		bool update(Mat, Rect)	
-	cdef cppclass InputArray:
-		pass
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 	cdef cppclass Tracker:
