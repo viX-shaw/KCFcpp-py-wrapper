@@ -9,13 +9,14 @@ from libcpp cimport bool
 
 cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
-		cppclass Tracker:
-			bool init(Mat, Rect)
-			bool update(Mat, Rect)	
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)	
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
-#	cdef cppclass Tracker:
-#		pass
+	cdef cppclass Tracker:
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)
+
 	cdef cppclass TrackerKCF:
 		@staticmethod
 		PtrTracker create()
@@ -27,10 +28,10 @@ cdef class kcftracker:
 		self.classptr = TrackerKCF.create()
 		
 	def init(self, ary, rectlist):
-		return self.classptr.Tracker.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
+		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
 		
 	def update(self, ary, rectlist):
 		rect = pylist2cvrect(rectlist)
-		result = self.classptr.Tracker.update(nparray2cvmat(ary), rect)
+		result = self.classptr.update(nparray2cvmat(ary), rect)
 		return result, cvrect2pylist(rect)
 
