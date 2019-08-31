@@ -19,19 +19,20 @@ cdef extern from "opencv2/tracking.hpp" namespace "cv":
 		bool init(Mat, Rect)
 		bool update(Mat, Rect)	
 		
-#cdef class kcftracker:
-#	cdef KCFTracker *classptr
-#	
-#	def __cinit__(self, hog, fixed_window, multiscale, lab):
-#		self.classptr = new KCFTracker(hog, fixed_window, multiscale, lab)
-#		
-#	def __dealloc(self):
-#		del self.classptr
-#		
-#	def init(self, rectlist, ary):
-#		self.classptr.init(pylist2cvrect(rectlist), nparray2cvmat(ary))
-#		
-#	def update(self, ary):
-#		rect = self.classptr.update(nparray2cvmat(ary))
-#		return cvrect2pylist(rect)
-#
+cdef class kcftracker:
+	cdef PtrTracker classptr
+	
+	def __cinit__(self, hog, fixed_window, multiscale, lab):
+		self.classptr = TrackerKCF.create()
+		
+	def __dealloc(self):
+		del self.classptr
+		
+	def init(self, ary, rectlist):
+		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
+		
+	def update(self, ary, rectlist):
+		rect = pylist2cvrect(rectlist)
+		result = self.classptr.update(nparray2cvmat(ary), pylist2cvrect(rectlist))
+		return result, cvrect2pylist(rect)
+
