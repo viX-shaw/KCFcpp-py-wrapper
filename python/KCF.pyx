@@ -9,19 +9,20 @@ from libcpp cimport bool
 
 cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
-		cppclass Tracker:
-			bool init(Mat, Rect)
-			bool update(Mat, Rect)	
+		pass
+	cppclass Tracker:
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)	
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
 #		pass
 	cdef cppclass TrackerKCF:
 		@staticmethod
-		PtrTracker create()
+		Tracker create()
 		
 cdef class kcftracker:
-	cdef PtrTracker classptr
+	cdef Tracker classptr
 	
 	def __cinit__(self, hog, fixed_window, multiscale, lab):
 		self.classptr = TrackerKCF.create()
