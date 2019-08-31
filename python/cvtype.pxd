@@ -32,5 +32,5 @@ cdef extern from "opencv2/core/types.hpp" namespace "cv":
 	cdef cppclass Rect:
 		Rect()
 		Rect2d()
-		Rect(int, int, int, int)
+		Rect(double, double, double, double)
 		int x, y, width, height
