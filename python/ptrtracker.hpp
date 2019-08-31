@@ -8,7 +8,7 @@
 class KCFT
 {
 public:
-    virtual KCFT();
+    KCFT();
     virtual ~KCFT();
     virtual bool init(cv::Mat img, const cv::Rect box);
     virtual bool update(cv::Mat img, const cv::Rect box);
