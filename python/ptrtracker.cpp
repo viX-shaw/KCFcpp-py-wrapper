@@ -2,12 +2,12 @@
 
 KCFT::KCFT()
 {
-  tracker = TrackerKCF::create()
+  tracker = cv::TrackerKCF::create();
 }
 
 KCFT::~KCFT()
 {
-  tracker = NULL
+  tracker = NULL;
 }
 
 bool KCFT::init(cv::Mat img, const cv::Rect box)
