@@ -17,6 +17,6 @@ bool KCFT::init(cv::Mat img, cv::Rect box)
 
 bool KCFT::update(cv::Mat img, cv::Rect box)
 {
-  const cv::Rect& b = box
+  const cv::Rect& b = box;
   return tracker->update(img, b);
 }
