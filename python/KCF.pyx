@@ -9,7 +9,7 @@ from libcpp cimport bool
 
 cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
-		cdef cppclass Tracker:
+		cppclass Tracker:
 			bool init(Mat, Rect)
 			bool update(Mat, Rect)	
 
