@@ -10,8 +10,8 @@ from libcpp cimport bool
 cdef extern from "./ptrtracker.hpp":
 	cdef cppclass KCFT:
 		KCFT()
-		bool init(Mat, Rect2d)
-		bool update(Mat, Rect2d)	
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)	
 
 #cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
@@ -35,7 +35,7 @@ cdef class kcftracker:
 		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
 		
 	def update(self, ary, rectlist):
-		cdef Rect2d rect = pylist2cvrect(rectlist)
+		cdef Rect rect = pylist2cvrect(rectlist)
 		result = self.classptr.update(nparray2cvmat(ary), rect)
 		return result, cvrect2pylist(rect)
 
