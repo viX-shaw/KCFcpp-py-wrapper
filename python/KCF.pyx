@@ -11,8 +11,8 @@ cdef extern from "./ptrtracker.cpp":
 	cdef cppclass PtrTracker:
 		pass
 	cppclass Tracker:
-		bool init(Mat, Rect2d)
-		bool update(Mat, Rect2d)	
+		bool init(Mat, Rect)
+		bool update(Mat, Rect)	
 
 cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
@@ -26,8 +26,7 @@ cdef class kcftracker:
 	
 	def __cinit__(self, hog, fixed_window, multiscale, lab):
 		self.classptr = TrackerKCF.create()
-	
-
+		
 	def init(self, ary, rectlist):
 		return self.classptr.init(nparray2cvmat(ary), pylist2cvrect(rectlist))
 		
