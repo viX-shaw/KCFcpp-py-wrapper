@@ -70,9 +70,9 @@ cdef np.ndarray cvmat2nparray(Mat &inmat):
 	memcpy(ary.data, inmat.data, ary.nbytes)
 	return ary
 	
-cdef inline Rect pylist2cvrect(list rectlist):
-	cdef Rect rect = Rect(rectlist[0], rectlist[1], rectlist[2], rectlist[3])
+cdef inline Rect2d pylist2cvrect(list rectlist):
+	cdef Rect2d rect = Rect(rectlist[0], rectlist[1], rectlist[2], rectlist[3])
 	return rect
 
-cdef inline list cvrect2pylist(Rect &rect):
+cdef inline list cvrect2pylist(Rect2d &rect):
 	return [rect.x, rect.y, rect.width, rect.height]

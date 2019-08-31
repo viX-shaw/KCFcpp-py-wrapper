@@ -10,7 +10,7 @@ class KCFT
 public:
     KCFT();
     virtual ~KCFT();
-    virtual bool init(cv::Mat img, cv::Rect box);
+    virtual bool init(cv::Mat img, cv::Rect2d box);
     virtual bool update(cv::Mat img, cv::Rect2d& box);
 
     cv::Ptr<cv::Tracker> tracker;
