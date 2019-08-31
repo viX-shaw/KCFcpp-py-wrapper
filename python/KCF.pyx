@@ -15,6 +15,7 @@ cdef extern from "opencv2/tracking.hpp" namespace "cv":
 	cdef cppclass Tracker:
 		pass
 	cdef cppclass TrackerKCF:
+		@staticmethod
 		PtrTracker create()
 		bool init(Mat, Rect)
 		bool update(Mat, Rect)	
@@ -25,7 +26,7 @@ cdef class kcftracker:
 	def __cinit__(self, hog, fixed_window, multiscale, lab):
 		self.classptr = TrackerKCF.create()
 		
-	def __dealloc(self):
+	def __dealloc__(self):
 		del self.classptr
 		
 	def init(self, ary, rectlist):
