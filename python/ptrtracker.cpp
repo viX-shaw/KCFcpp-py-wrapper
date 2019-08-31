@@ -5,12 +5,12 @@ KCFT::KCFT()
   tracker = TrackerKCF::create()
 }
 
-bool KCFT::init(cv::Mat img, cv::Rect2d &box)
+bool KCFT::init(cv::Mat img, cv::Rect &box)
 {
   return tracker->init(img, box)
 }
 
-bool KCFT::update(cv::Mat img, cv::Rect2d &box)
+bool KCFT::update(cv::Mat img, cv::Rect &box)
 {
   return tracker->update(img, box)
 }
