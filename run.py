@@ -83,7 +83,7 @@ if __name__ == '__main__':
 			onTracking = True
 		elif(onTracking):
 			t0 = time()
-			res, boundingbox = tracker.update(frame, [0, 0, 0, 0])  #frame had better be contiguous
+			res, boundingbox = tracker.update(frame, [ix, iy, w, h])  #frame had better be contiguous
 			print("update. done", boundingbox)
 			
 			t1 = time()
