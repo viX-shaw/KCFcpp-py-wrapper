@@ -16,7 +16,7 @@ cdef extern from "./ptrtracker.hpp":
 #cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
 #		bool init(Mat img, Rect box)
-#		bool update(Mat img, Rect2d box)
+#		bool update(Mat img, Rect2d& box)
 #
 #	cdef cppclass TrackerKCF:
 #		@staticmethod
