@@ -19,6 +19,7 @@ bool KCFT::update(cv::Mat img, cv::Rect2d box)
 {
   cv::Rect2d& b = box;
   bool res =  tracker->update(img, b);
+  std::cout << res;
   std::cout << b;
   return res;
 }
