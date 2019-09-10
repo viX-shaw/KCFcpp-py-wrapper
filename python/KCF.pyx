@@ -14,7 +14,7 @@ cdef extern from "./ptrtracker.hpp":
 	cdef cppclass KCFT:
 		KCFT()
 		bool init(Mat, Rect)
-		bbox update(Mat, Rect)	
+		bbox* update(Mat, Rect)	
 
 #cdef extern from "opencv2/tracking.hpp" namespace "cv":
 #	cdef cppclass Tracker:
@@ -39,7 +39,7 @@ cdef class kcftracker:
 		
 	def update(self, ary, rectlist):
 		cdef Rect rect = pylist2cvrect(rectlist)
-		cdef bbox result = self.classptr.update(nparray2cvmat(ary), rect)
+		cdef bbox* result = self.classptr.update(nparray2cvmat(ary), rect)
 		rect = result.box
 		return result.success, cvrect2pylist(rect)
 
