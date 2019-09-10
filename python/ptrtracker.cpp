@@ -21,7 +21,7 @@ bbox KCFT::update(cv::Mat img, cv::Rect2d box)
   bool res =  tracker->update(img, b);
   bbox coords = <bbox *>malloc(sizeof(bbox));
   coords.success = res;
-  coords.box = b;
+  coords.box = *b;
   std::cout << res;
   std::cout << b;
   return coords;

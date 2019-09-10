@@ -9,7 +9,7 @@ struct bbox
 {
   bool success;
   cv::Rect2d box;
-}
+};
 class KCFT
 {
 public:
