@@ -8,7 +8,7 @@
 struct bbox
 {
   bool success;
-  cv::Rect2d& box;
+  cv::Rect2d box;
 };
 class KCFT
 {
