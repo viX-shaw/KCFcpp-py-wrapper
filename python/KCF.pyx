@@ -10,7 +10,7 @@ from libcpp cimport bool
 cdef extern from "./ptrtracker.hpp":
 	cdef cppclass bbox:
 		bool success
-		Rect box
+		Rect* box
 	cdef cppclass KCFT:
 		KCFT()
 		bool init(Mat, Rect)
