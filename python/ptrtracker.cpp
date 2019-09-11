@@ -22,7 +22,5 @@ bbox* KCFT::update(cv::Mat img, cv::Rect2d box)
   bbox *coords = (bbox *)malloc(sizeof(bbox));
   coords->success = res;
   coords->box = b;
-  std::cout << res;
-  std::cout << b;
   return coords;
 }
